@@ -1,0 +1,20 @@
+{
+  "name": "simple-blog",
+  "version": "1.0.0",
+  "description": "\"CRUD Node + MySQL\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "@albertorodriguez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
