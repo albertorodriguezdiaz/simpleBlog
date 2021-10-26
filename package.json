@@ -10,9 +10,15 @@
   "author": "@albertorodriguez",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-mysql-session": "^2.1.7",
+    "express-session": "^1.17.2",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
