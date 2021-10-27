@@ -1,12 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
-const pool = require('./settings/db');
+// const pool = require('./settings/db');
 const hbs = require('express-handlebars');
+const session = require('express-session');
+const passport = require('passport');
+
+
+const { database } = require('./settings/keys');
+const MySQLStore = require('express-mysql-session')(session);
 const path = require('path');
-
-
-
 const app = express();
+require('./controllers/passport');
+
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 
@@ -21,6 +26,21 @@ app.set('view engine', '.hbs');
 
 //middleware
 app.use(morgan('dev'));
+
+//session
+app.use(session({
+    secret: 'CursoCRUDnodeJS',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) =>{
+    app.locals.user = req.user;
+    next();
+});
 
 // Rutas de la APP
 app.use(require('./routes/app'));

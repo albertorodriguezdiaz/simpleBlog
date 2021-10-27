@@ -29,6 +29,31 @@ passport.use('local.signup', new LocalStrategy({
 }));
 
 
+passport.use('local.signin', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true
+}, async (req, username, password, done) =>{
+
+    const resp = await pool.query('SELECT * FROM users WHERE username=?', [username]);
+
+    if (resp.length > 0) {
+
+        const user = resp[0];
+        const validPass = helpers.matchPass(password, user.password);
+        if (validPass) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+
+    } else {
+        return done(null, false);
+    }
+
+}));
+
+
 passport.serializeUser((user, done) =>{
     done(null, user.id);
 });

@@ -14,5 +14,18 @@ app.post('/signup', passport.authenticate('local.signup',{
 
 app.get('/signin', auth.signin);
 
+app.post('/signin', (req, res, next) =>{
+    passport.authenticate('local.signin', {
+        successRedirect: '/support/dashboard',
+        failureRedirect: '/error',
+        failureFlash: true
+    })(req, res, next);
+});
+
+
+app.get('/logout', async (req, res) =>{
+    req.logOut();
+    res.redirect('/');
+})
 
 module.exports = app;
