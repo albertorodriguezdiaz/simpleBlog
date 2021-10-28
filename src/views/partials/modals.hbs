@@ -115,6 +115,7 @@
           <div class="row">
            
 
+            {{#each UltArticulo}}
             <div class="col-4">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -128,7 +129,7 @@
               </div>
             </div>
            
-
+            {{else}}
             <div class="col-4">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -140,6 +141,7 @@
                 </div>
               </div>
             </div>
+            {{/each}}
            
           </div>
         </div>
@@ -163,7 +165,8 @@
         <div class="modal-body">
           <div class="row">
             
-
+            {{#each UltMensajes}}
+              
             <div class="col-4">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -177,7 +180,7 @@
               </div>
             </div>
            
-
+            {{else}}
             <div class="col">
               <center>
                 <div class="card" style="width: 18rem;">
@@ -191,6 +194,7 @@
                 </div>
               </center>
             </div>
+            {{/each}}
            
            
           </div>

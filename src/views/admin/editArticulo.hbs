@@ -6,21 +6,28 @@
     <div class="row">
         <div class="col p-5">
             <div class="row">
+            
+                    
+                
                 <center>
                     <h2 style="color: blanchedalmond; font-size: 40px;">
                         Edicion de Articulo
                     </h2>
                 </center>
             </div>
+            
             <form action="" method="POST">
+            {{#each Articulos}}
                 <div class="form-group">
-                    <input type="text" name="title" class="form-control"  autofocus>
+                    <input type="text" value="{{title}}" name="title" class="form-control"  autofocus>
+                    
                 </div>
                 <br>
                 <div class="form-group">
-                    <textarea name="descript" rows="4" class="form-control"  > </textarea>
+                    <textarea name="descript" rows="4" class="form-control"> {{descript}}</textarea>
                 </div>
                 <br>
+            {{/each}}
                 
                 <div class="row">
                     <button class="btn btn-success btn-block">

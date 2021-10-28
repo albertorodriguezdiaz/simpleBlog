@@ -88,11 +88,21 @@ BEGIN
 END
 $$
 
---Listar ultimos articulos
+--Listar mensajes
 DELIMITER $$
-CREATE PROCEDURE UltimosArticulos()
+CREATE PROCEDURE ListMensajes()
 BEGIN
-    SELECT * FROM articulos ORDER BY id DESC LIMIT 6;
+    SELECT * FROM mensaje ORDER BY id DESC LIMIT 12;
+END
+$$
+
+--Editar Articulos
+DELIMITER $$
+CREATE PROCEDURE EditArticulo(
+    in num VARCHAR(20)
+)
+BEGIN
+    SELECT * FROM articulos WHERE id = num;
 END
 $$
 
