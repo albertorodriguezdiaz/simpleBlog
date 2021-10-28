@@ -106,5 +106,47 @@ BEGIN
 END
 $$
 
+
+--Eliminar Articulos
+DELIMITER $$
+CREATE PROCEDURE DeleteArticulo(
+    in num VARCHAR(20)
+)
+BEGIN
+    DELETE FROM articulos WHERE id = num;
+END
+$$
+
+--Eliminar MEnsaje
+DELIMITER $$
+CREATE PROCEDURE DeleteMensaje(
+    in num VARCHAR(20)
+)
+BEGIN
+    DELETE FROM mensaje WHERE id = num;
+END
+$$
+
+
+--List usuarios
+DELIMITER $$
+CREATE PROCEDURE ListUser()
+BEGIN
+    SELECT * FROM users;
+END
+$$
+
+--Add Mensaje
+DELIMITER $$
+CREATE PROCEDURE AddMEnsaje(
+    in Nombre VARCHAR(255),
+    in Correo VARCHAR(255),
+    in Descriptions TEXT
+)
+BEGIN
+    INSERT INTO mensaje(nombre, correo, description) values (Nombre, Correo, Descriptions);
+END
+$$
+
 --  Eliminar procedimimentos
 -- DROP PROCEDURE IF EXISTS CountMensajes;

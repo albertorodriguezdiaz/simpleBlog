@@ -8,4 +8,7 @@ app.get('/error', (req, res)=>{
     res.render('error');
 });
 
+
+app.post('/addMensaje', public.AddMensaje);
+
 module.exports = app;
