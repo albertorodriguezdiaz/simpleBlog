@@ -4,4 +4,8 @@ const app = express.Router();
 
 app.get('/', public.index);
 
+app.get('/error', (req, res)=>{
+    res.render('error');
+});
+
 module.exports = app;

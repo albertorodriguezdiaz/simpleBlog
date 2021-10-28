@@ -1,13 +1,12 @@
 const pool = require('../settings/db');
 
-let signup = (req,res) =>{
-    res.render('auth/signup');
-}
-
-let signin = (req,res) =>{
+let signup = async (req, res) => {
+    const user = await pool.query('SELECT * FROM users');
+    res.render('auth/signup', { user});
+};
+let signin = (req, res) => {
     res.render('auth/signin');
 }
-
 module.exports = {
     signup,
     signin

@@ -42,3 +42,59 @@ ALTER TABLE mensaje
 
 ALTER TABLE mensaje
   MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
+
+-- AddArticulo
+DELIMITER $$
+CREATE PROCEDURE ProAddArticulo(
+    in Title VARCHAR(45),
+    in Descript TEXT,
+    in Users_id INT(11)
+)
+BEGIN
+    insert into articulos(title, descript, users_id) values (Title, Descript, Users_id);
+END
+$$
+
+--ListarArticulo
+DELIMITER $$
+CREATE PROCEDURE ListArticulos()
+BEGIN
+    select * from articulos;
+END
+$$
+
+--contarArticulo
+DELIMITER $$
+CREATE PROCEDURE CountArticulos()
+BEGIN
+    select COUNT(id) AS total from articulos;
+END
+$$
+
+--contar Mensajes
+DELIMITER $$
+CREATE PROCEDURE CountMensajes()
+BEGIN
+    select COUNT(id) AS total from mensaje;
+END
+$$
+
+--Listar ultimos articulos
+DELIMITER $$
+CREATE PROCEDURE UltimosArticulos()
+BEGIN
+    SELECT * FROM articulos ORDER BY id DESC LIMIT 6;
+END
+$$
+
+--Listar ultimos articulos
+DELIMITER $$
+CREATE PROCEDURE UltimosArticulos()
+BEGIN
+    SELECT * FROM articulos ORDER BY id DESC LIMIT 6;
+END
+$$
+
+--  Eliminar procedimimentos
+-- DROP PROCEDURE IF EXISTS CountMensajes;

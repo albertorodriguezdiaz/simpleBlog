@@ -25,7 +25,7 @@
 		<ul class="navbar-nav  ">
 
 			<div class="col-4 nav-item">
-				<a href="">
+				<a href="/req/logout">
 					<div>
 						<center>
 							<i class="fas fa-sign-out-alt"></i>
@@ -55,7 +55,7 @@
 				</a>
 			</li>
 			<li class="sidebar-nav-item">
-				<a  class="sidebar-nav-link active">
+				<a data-toggle="modal" data-target="#AddArticuloModal" class="sidebar-nav-link active">
 					<div>
 						<i class="fab fa-accusoft"></i>
 					</div>
@@ -63,7 +63,7 @@
 				</a>
 			</li>
 			<li class="sidebar-nav-item">
-				<a  class="sidebar-nav-link">
+				<a data-toggle="modal" data-target="#ListArticuloModal" class="sidebar-nav-link">
 					<div>
 						<i class="fas fa-tasks"></i>
 					</div>
@@ -105,7 +105,9 @@
 					<p>
 						<i class="fas fa-tasks"></i>
 					</p>
-					20
+					{{#each NumArticulos}}
+						<h3>{{total}}</h3>
+					{{/each}}
 					<p>Articulos publicados</p>
 				</div>
 			</div>
@@ -114,7 +116,9 @@
 					<p>
 						<i class="fas fa-check-circle"></i>
 					</p>
-						10
+						{{#each NumMensajes}}
+						<h3>{{total}}</h3>
+					{{/each}}
 					<p>Total mensajes</p>
 				</div>
 			</div>
@@ -129,7 +133,7 @@
 						<i class="fas fa-ellipsis-h"></i>
 					</div>
 					<div class="card-content">
-						<table>
+						<table class="hover">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -140,6 +144,20 @@
 								</tr>
 							</thead>Articulos
 							<tbody>
+								{{#each Articulos}}
+									<tr>
+										<td>{{id}}</td>
+										<td>{{title}}</td>
+										<td>{{descript}}</td>
+										<td>
+											<samp class="dot">
+												<i class="bg-success"></i>
+												{{users_id}}
+											</samp>
+										</td>
+										<td>{{hora}}</td>
+									</tr>
+								{{/each}}
 							</tbody>
 						</table>
 					</div>
@@ -156,6 +174,9 @@
 			</div>
 		</div>
 	</div>
+
+	{{>modals}}
+
 	<!-- end main content -->
 	<!-- import script -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>

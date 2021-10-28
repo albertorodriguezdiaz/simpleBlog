@@ -24,7 +24,7 @@
             </h2>
           </center>
 
-          <form action="" method="POST">
+          <form action="/support/addarticulo" method="POST">
             <div class="form-group">
               <input type="text" name="title" class="form-control" placeholder="title" autofocus>
             </div>
@@ -61,8 +61,9 @@
         <div class="modal-body">
           ...
           <div class="row">
-            
-            <div class="col-4">
+
+            {{#each Articulos}}
+              <div class="col-4">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">{{title}}</h5>
@@ -75,6 +76,7 @@
               </div>
             </div>
             
+            {{else}}
             <div class="col-4">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -86,6 +88,9 @@
                 </div>
               </div>
             </div>
+            {{/each}}
+            
+            
            
           </div>
         </div>
